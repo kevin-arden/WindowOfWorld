@@ -11,46 +11,38 @@ function SignUp(){
 
     return (
       <div>
-        <Button onClick={showingModal} className="btn-danger">
-          Sign Up
-        </Button>
+        <Button onClick={showingModal}>Sign Up</Button>
+
         <Modal show={show} onHide={closingModal}>
+          <Modal.Header>Sign Up</Modal.Header>
           <Modal.Body>
-            <p className="sign-header">Sign In</p>
-            <form onSubmit={() => console.log("submit")}>
-              <div className="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="Email"
-                  placeholder="Email"
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="password"
-                  class="form-control"
-                  name="Password"
-                  placeholder="Password"
-                />
-              </div>
-              <div className="form-group" style={{ paddingBottom: "18px" }}>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="fullName"
-                  id="fullName"
-                  placeholder="Full Name"
-                />
-              </div>
-              <div className="form-group">
-                <Button className="btn-danger btn-block" onClick={closingModal}>
-                  Sign Up
-                </Button>
-              </div>
-            </form>
-            <p>Already Have an account ? Click Here</p>
+            <input
+              type="text"
+              class="form-control"
+              name="email"
+              id="email"
+              placeholder="Email"
+            />
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+            <input
+              type="text"
+              class="form-control"
+              name="fullName"
+              id="fullName"
+              placeholder="Full Name"
+            />
           </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={closingModal}>Sign Up</Button>
+            <br/>
+            <p>Already Have an account ? Click Here</p>
+          </Modal.Footer>
         </Modal>
       </div>
     );
