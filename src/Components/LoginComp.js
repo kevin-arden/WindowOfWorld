@@ -1,42 +1,64 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import "../App.css";
 
 function loginComponent() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [show, setShow] = useState(false);
 
   const showingModal = () => setShow(true);
 
   const closingModal = () => setShow(false);
 
+  const [loginFormData, setLoginFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { email, password } = loginFormData;
+
+  const onChange = (e) => {
+    setLoginFormData({ ...loginFormData, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    alert(`login berhasil`);
+  };
+
   return (
     <div>
-      <Button onClick={showingModal} className="btn-danger">
+      <Button onClick={showingModal} Button variant="danger">
         Sign In
       </Button>
+
       <Modal show={show} onHide={closingModal}>
         <Modal.Body>
           <p className="sign-header">Sign In</p>
-          <form onSubmit={() => console.log("submit")}>
+          <form onSubmit={(e) => onSubmit(e)}>
             <div className="form-group">
               <input
-                type="text"
+                name="email"
+                value={email}
+                onChange={(e) => onChange(e)}
+                type="email"
                 class="form-control"
-                name="Name"
-                placeholder="Name"
+                placeholder="Email"
               />
             </div>
-            <div className="form-group" style={{paddingBottom: "18px"}}>
+            <div className="form-group" style={{ paddingBottom: "18px" }}>
               <input
+                name="password"
+                value={password}
+                onChange={(e) => onChange(e)}
                 type="password"
                 class="form-control"
-                name="Password"
                 placeholder="Password"
               />
             </div>
             <div className="form-group">
-              <Button className="btn-danger btn-block" onClick={closingModal}>
+              <Button variant="danger" block>
                 Sign In
               </Button>
             </div>
@@ -44,6 +66,11 @@ function loginComponent() {
           <p>Don't Have an account ? Click Here</p>
         </Modal.Body>
       </Modal>
+      {/* <div>
+        <pre>
+          {JSON.stringify(loginFormData, null, 2)}
+        </pre>
+      </div> */}
     </div>
   );
 }
