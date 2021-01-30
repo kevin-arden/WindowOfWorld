@@ -40,11 +40,12 @@ const SubscribePage = () => {
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="form-group">
               <input
+              
                 name="accNumber"
                 value={accNumber}
                 onChange={(e) => onChange(e)}
                 type="text"
-                className="form-control"
+                className="form-control form-sub"
                 placeholder="Input your account number"
               />
             </div>

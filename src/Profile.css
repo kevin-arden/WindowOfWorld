@@ -7,7 +7,6 @@
 
 .box {
   border-radius: 5px;
-  width: auto;
   height: 334px;
   margin-right: 106px;
   background: #ffd9d9;
@@ -17,12 +16,13 @@
 
 .left-side {
   margin-left: 34px;
+  text-align: left;
+  float: left;
 }
 
 .right-side {
   text-align: right;
-  align-items: right;
-  margin-left: 1260px;
+  float: right;
 }
 .item {
   display: flex;
@@ -46,8 +46,6 @@
   margin-left: 15px;
 }
 
-.editButton{
-    margin-top: 14px;
-    
-    
+.editButton {
+  margin-top: 14px;
 }

@@ -16,7 +16,7 @@ const ProfilePage = () => {
           <Sidebar />
         </div>
         <div className="col-md-10">
-          <h1 className="profile">Profile</h1>
+          <p className="profile">Profile</p>
           <div className="box">
             <div className="left-side">
               <div className="item" style={{ paddingTop: "36px" }}>
@@ -32,7 +32,6 @@ const ProfilePage = () => {
                 <div>
                   <img src={gender} alt="" />
                 </div>
-
                 <div className="textInner">
                   <p className="upperText">Male</p>
                   <p className="lowerText">Gender</p>
@@ -54,14 +53,12 @@ const ProfilePage = () => {
                 </div>
 
                 <div className="textInner">
-                  <p className="upperText">
-                    Perumahan Permata Bintaro Residence C-3
+                  <p className="upperText">Perumahan Permata Bintaro Residence C-3
                   </p>
                   <p className="lowerText">Address</p>
                 </div>
               </div>
             </div>
-
             <div className="right-side">
               <img src={profilepic} alt="" />
               <div className="editButton">

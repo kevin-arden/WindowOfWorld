@@ -1,14 +1,20 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+import React, { useState, useContext } from "react";
+import { Modal } from "react-bootstrap";
+import { AppContext } from "../Context/globalContext";
 import "../App.css";
+import { useHistory } from "react-router-dom";
 
 function loginComponent() {
+  let history = useHistory();
+
   const [show, setShow] = useState(false);
 
-  const showingModal = () => setShow(true);
+  const showingModalLogin = () => setShow(true);
 
-  const closingModal = () => setShow(false);
+  const closingModalLogin = () => setShow(false);
+
+  const [state, dispatch] = useContext(AppContext);
 
   const [loginFormData, setLoginFormData] = useState({
     email: "",
@@ -24,22 +30,41 @@ function loginComponent() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    alert(`login berhasil`);
+    if (email === "admin@gmail.com" && password === "12345678") {
+      alert(`Success, welcome ${email}`);
+      dispatch({
+        type: "LOGIN_ADMIN",
+      });
+      history.push("/transaction");
+    } else if (email === "user@gmail.com" && password === "12345678") {
+      alert(`Success, welcome ${email}`);
+      dispatch({
+        type: "LOGIN_SUCCESS",
+      });
+      history.push("/home");
+    } else {
+      alert(`Failed`);
+      dispatch({
+        type: "LOGOUT",
+      });
+    }
   };
 
   return (
     <div>
-      <Button
-        onClick={showingModal}
-        variant="danger"
+      <button
+        onClick={showingModalLogin}
+        className="btn btn-danger"
         style={{ width: "190px", height: "50px" }}
       >
         Sign In
-      </Button>
+      </button>
 
-      <Modal show={show} onHide={closingModal}>
+      <Modal show={show} onHide={closingModalLogin}>
         <Modal.Body>
-          <p className="sign-header">Sign In</p>
+          <p className="sign-header">
+            Sign In {state.isLogin ? "Sudah Login" : "Belum login"}
+          </p>
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="form-group">
               <input
@@ -62,9 +87,12 @@ function loginComponent() {
               />
             </div>
             <div className="form-group">
-              <Button variant="danger" block>
+              <button
+                className="btn btn-danger"
+                style={{ display: "block", width: "100%" }}
+              >
                 Sign In
-              </Button>
+              </button>
             </div>
           </form>
           <p>Don't Have an account ? Click Here</p>

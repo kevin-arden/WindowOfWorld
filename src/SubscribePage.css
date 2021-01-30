@@ -29,7 +29,7 @@
   margin-bottom: 15px;
 }
 
-input[type="text"] {
+.form-sub {
   width: 350px;
   height: 50px;
   border-style: solid;

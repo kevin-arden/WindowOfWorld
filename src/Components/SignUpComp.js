@@ -1,25 +1,26 @@
 import React, { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
-import LoginComponent from "../Components/LoginComp";
+import { Modal } from "react-bootstrap";
 import "../App.css";
 
 function SignUp() {
   const [show, setShow] = useState(false);
 
-  const showingModal = () => setShow(true);
+  const showingModalSignUp = () => setShow(true);
 
-  const closingModal = () => setShow(false);
+  const closingModalSignUp = () => setShow(false);
 
+  
   return (
     <div>
-      <Button
-        onClick={showingModal}
-        variant="danger"
+      <button
+        onClick={showingModalSignUp}
+        className="btn btn-danger"
         style={{ width: "190px", height: "50px" }}
       >
         Sign Up
-      </Button>
-      <Modal show={show} onHide={closingModal}>
+      </button>
+
+      <Modal show={show} onHide={closingModalSignUp}>
         <Modal.Body>
           <p className="sign-header">Sign In</p>
           <form onSubmit={() => console.log("submit")}>
@@ -49,7 +50,12 @@ function SignUp() {
               />
             </div>
             <div className="form-group">
-              <Button className="btn-danger btn-block">Sign Up</Button>
+              <button
+                className="btn btn-danger"
+                style={{ display: "block", width: "100%" }}
+              >
+                Sign Up
+              </button>
             </div>
           </form>
           <p>Already Have an account ? Click Here</p>

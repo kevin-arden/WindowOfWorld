@@ -6,6 +6,7 @@ import logoPic from "../Image/Icon.png";
 import "../LandingPage.css";
 
 const LandingPage = () => {
+
   return (
     <div>
       <div className="row">
