@@ -1,34 +1,17 @@
 import React from "react";
+import "../card.css";
 
 const Card = ({ buku }) => {
   const { id, title, penulis, image } = buku;
 
   return (
-    <div
-      key={id}
-      style={{
-        width: "300px",
-        height: "400px",
-        backgroundColor: "whitesmoke",
-        color: "black",
-        borderRadius: "5px",
-        padding: "10px",
-      }}
-    >
+    <div className="outer-box" key={id}>
       <div>
-        <img
-          style={{
-            alignItems: "center",
-            width: "250px",
-            height: "300px",
-          }}
-          src={image}
-          alt=""
-        />
+        <img className="book-title" src={image} alt="" />
       </div>
       <div>
-        <h2 style={{ fontSize: "20px" }}>{title}</h2>
-        <h2 style={{ fontSize: "16px" }}>{penulis}</h2>
+        <p className="title">{title}</p>
+        <p className="writer">{penulis}</p>
       </div>
     </div>
   );

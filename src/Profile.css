@@ -1,0 +1,53 @@
+.profile {
+  margin-top: 60px;
+  margin-bottom: 39px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 700;
+}
+
+.box {
+  border-radius: 5px;
+  width: auto;
+  height: 334px;
+  margin-right: 106px;
+  background: #ffd9d9;
+  display: flex;
+  align-items: center;
+}
+
+.left-side {
+  margin-left: 34px;
+}
+
+.right-side {
+  text-align: right;
+  align-items: right;
+  margin-left: 1260px;
+}
+.item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.upperText {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.lowerText {
+  font-size: 12px;
+  margin-bottom: 0px;
+  color: #929292;
+}
+
+.textInner {
+  margin-left: 15px;
+}
+
+.editButton{
+    margin-top: 14px;
+    
+    
+}

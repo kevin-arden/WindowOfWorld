@@ -29,7 +29,11 @@ function loginComponent() {
 
   return (
     <div>
-      <Button onClick={showingModal} Button variant="danger">
+      <Button
+        onClick={showingModal}
+        variant="danger"
+        style={{ width: "190px", height: "50px" }}
+      >
         Sign In
       </Button>
 

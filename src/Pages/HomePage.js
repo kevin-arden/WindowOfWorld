@@ -1,7 +1,9 @@
 import React from "react";
 import Sidebar from "../Components/Sidebar";
 import Frame from "../Image/Frame1.png";
-import Card from "../Components/Card"
+import Card from "../Components/Card";
+import "../HomePage.css";
+
 const HomePage = () => {
   const buku = [
     {
@@ -38,22 +40,16 @@ const HomePage = () => {
   ];
 
   return (
-    <div>
+    <div className="App-header">
       <div className="row">
         <div className="col-md-2">
           <Sidebar />
         </div>
         <div className="col-md-10">
-          <img src={Frame} alt="" />
-          <h2>List buku</h2>
+          <img className="center cover" src={Frame} alt="" />
+          <p className="book-header">List Book</p>
           <div>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr 1fr 1fr",
-                gap: "20px",
-              }}
-            >
+            <div className="book1">
               {buku
                 .filter((buku) => buku.show)
                 .map((buku, index) => (

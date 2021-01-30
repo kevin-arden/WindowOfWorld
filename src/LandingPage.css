@@ -1,0 +1,32 @@
+html {
+  height: 100%;
+}
+
+.box1 {
+  margin-left: 78px;
+  margin-top: 79px;
+  font-size: 24px;
+}
+
+.text {
+  padding-left: 27px;
+  margin-bottom: 74px;
+}
+
+.button {
+  display: flex;
+  padding-left: 27px;
+  align-items: center;
+}
+
+.pic {
+  position: relative;
+  left: -280px;
+  height: 920px;
+  display: flex;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  align-items: center;
+}

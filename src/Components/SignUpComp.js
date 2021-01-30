@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
+import LoginComponent from "../Components/LoginComp";
 import "../App.css";
 
 function SignUp() {
@@ -11,7 +12,11 @@ function SignUp() {
 
   return (
     <div>
-      <Button onClick={showingModal} className="btn-danger">
+      <Button
+        onClick={showingModal}
+        variant="danger"
+        style={{ width: "190px", height: "50px" }}
+      >
         Sign Up
       </Button>
       <Modal show={show} onHide={closingModal}>
@@ -44,9 +49,7 @@ function SignUp() {
               />
             </div>
             <div className="form-group">
-              <Button className="btn-danger btn-block">
-                Sign Up
-              </Button>
+              <Button className="btn-danger btn-block">Sign Up</Button>
             </div>
           </form>
           <p>Already Have an account ? Click Here</p>
