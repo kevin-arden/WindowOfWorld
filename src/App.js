@@ -5,16 +5,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { AppContextProvider } from "./Context/globalContext";
 
-import HomePage from "./Pages/HomePage";
-import SubscribePage from "./Pages/SubscribePage";
-import ProfilePage from "./Pages/ProfilePage";
+import HomePage from "./Pages/HomePage/HomePage";
+import SubscribePage from "./Pages/SubscribePage/SubscribePage";
+import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import PrivateRoute from "./Components/PrivateRoute";
 import PrivateRouteAdmin from "./Components/PrivateRouteAdmin";
-import TransactionPage from "./Pages/TransactionPage";
-import AddBook from "./Pages/AddBook";
-import DetailBook from "./Pages/DetailBook";
-import ReadBook from "./Pages/ReadBook";
-import LandingPage from "./Pages/LandingPage";
+import TransactionPage from "./Pages/TransactionPage/TransactionPage";
+import AddBook from "./Pages/AddBook/AddBook";
+import DetailBook from "./Pages/DetailBook/DetailBook";
+import ReadBook from "./Pages/ReadBook/ReadBook";
+import LandingPage from "./Pages/LandingPage/LandingPage";
 import { BookContextProvider } from "./Context/bookContext";
 
 function App() {

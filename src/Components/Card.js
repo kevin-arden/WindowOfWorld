@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import "../card.css";
 import { useHistory } from "react-router-dom";
 import { AppContext } from "../Context/globalContext";
-import DetailBook from "../Pages/DetailBook";
 
 const Card = ({ buku }) => {
   const [state] = useContext(AppContext);

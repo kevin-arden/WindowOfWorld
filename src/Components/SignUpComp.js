@@ -49,7 +49,7 @@ function SignUp() {
 
       <Modal show={show} onHide={closingModalSignUp}>
         <Modal.Body>
-          <p className="sign-header">Sign In</p>
+          <p className="sign-header">Sign Up</p>
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="form-group">
               <input

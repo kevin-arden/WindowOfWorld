@@ -5,6 +5,7 @@ import { AppContext } from "../Context/globalContext";
 import "../App.css";
 import { useHistory } from "react-router-dom";
 import { user } from "../Data/UserData";
+
 function loginComponent() {
   let history = useHistory();
 
@@ -96,7 +97,7 @@ function loginComponent() {
               </button>
             </div>
           </form>
-          <p>Don't Have an account ? Click Here</p>
+          <p>Don't Have an account ? </p> <a onClick={closingModalLogin}></a>
         </Modal.Body>
       </Modal>
       {/* <div>
