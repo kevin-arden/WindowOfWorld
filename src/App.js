@@ -11,29 +11,40 @@ import ProfilePage from "./Pages/ProfilePage";
 import PrivateRoute from "./Components/PrivateRoute";
 import PrivateRouteAdmin from "./Components/PrivateRouteAdmin";
 import TransactionPage from "./Pages/TransactionPage";
-
+import AddBook from "./Pages/AddBook";
+import DetailBook from "./Pages/DetailBook";
+import ReadBook from "./Pages/ReadBook";
 import LandingPage from "./Pages/LandingPage";
+import { BookContextProvider } from "./Context/bookContext";
 
 function App() {
   return (
-    <AppContextProvider>
-      <Router>
-        <div>
-          
-          {/* A <Switch> looks through its children <Route>s and
+    <BookContextProvider>
+      <AppContextProvider>
+        <Router>
+          <div>
+            {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-          <Switch>
-            <Route path="/" exact>
-              <LandingPage />
-            </Route>
-            <PrivateRoute path="/home" exact component={HomePage} />
-            <PrivateRoute path="/subscribe" exact component={SubscribePage} />
-            <PrivateRoute path="/profile" exact component={ProfilePage} />
-            <PrivateRouteAdmin path="/transaction" exact component={TransactionPage} />
-          </Switch>
-        </div>
-      </Router>
-    </AppContextProvider>
+            <Switch>
+              <Route path="/" exact>
+                <LandingPage />
+              </Route>
+              <PrivateRoute path="/home" exact component={HomePage} />
+              <PrivateRoute path="/subscribe" exact component={SubscribePage} />
+              <PrivateRoute path="/profile" exact component={ProfilePage} />
+              <Route path="/book/:id" exact component={DetailBook} />
+              <Route path="/read/:rid" exact component={ReadBook} />
+              <PrivateRouteAdmin
+                path="/transaction"
+                exact
+                component={TransactionPage}
+              />
+              <PrivateRouteAdmin path="/addbook" exact component={AddBook} />
+            </Switch>
+          </div>
+        </Router>
+      </AppContextProvider>
+    </BookContextProvider>
   );
 }
 

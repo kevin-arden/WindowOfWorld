@@ -1,6 +1,7 @@
-import React, { useContext} from 'react';
+import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
-import {AppContext} from '../Context/globalContext'
+import { AppContext } from "../Context/globalContext";
+
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const [state] = useContext(AppContext);
   const isLogin = state.isLogin;

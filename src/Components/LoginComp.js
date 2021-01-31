@@ -4,7 +4,7 @@ import { Modal } from "react-bootstrap";
 import { AppContext } from "../Context/globalContext";
 import "../App.css";
 import { useHistory } from "react-router-dom";
-
+import { user } from "../Data/UserData";
 function loginComponent() {
   let history = useHistory();
 
@@ -30,24 +30,27 @@ function loginComponent() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (email === "admin@gmail.com" && password === "12345678") {
-      alert(`Success, welcome ${email}`);
-      dispatch({
-        type: "LOGIN_ADMIN",
-      });
-      history.push("/transaction");
-    } else if (email === "user@gmail.com" && password === "12345678") {
-      alert(`Success, welcome ${email}`);
-      dispatch({
-        type: "LOGIN_SUCCESS",
-      });
-      history.push("/home");
-    } else {
-      alert(`Failed`);
-      dispatch({
-        type: "LOGOUT",
-      });
-    }
+    user.map((user) => {
+      if (
+        email === user.email &&
+        email === "admin@gmail.com" &&
+        password === user.password
+      ) {
+        alert(`Success, welcome ${email}`);
+        dispatch({
+          type: "LOGIN_ADMIN",
+        });
+        console.log(email);
+        history.push("/transaction");
+      } else if (email === user.email && password === user.password) {
+        alert(`Success, welcome ${email}`);
+        dispatch({
+          type: "LOGIN_SUCCESS",
+          payload: { userLogin: user },
+        });
+        history.push("/home");
+      }
+    });
   };
 
   return (
@@ -62,9 +65,7 @@ function loginComponent() {
 
       <Modal show={show} onHide={closingModalLogin}>
         <Modal.Body>
-          <p className="sign-header">
-            Sign In {state.isLogin ? "Sudah Login" : "Belum login"}
-          </p>
+          <p className="sign-header">Sign In</p>
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="form-group">
               <input

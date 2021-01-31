@@ -1,28 +1,22 @@
 import { createContext, useReducer } from "react";
-export const AppContext = createContext();
+
+export const UserContext = createContext();
 
 const initialState = {
-  isLogin: false,
-  isAdmin: false,
-  isSubscribed: false,
-  userLogin: {}
+  isSubscribe: false,
 };
-
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "LOGIN_SUCCESS":
       return {
         ...state,
-        isLogin: true,
-        userLogin: action.payload.userLogin
+        userEmail: true,
       };
     case "LOGOUT":
       return {
         ...state,
-        isLogin: false,
-        isAdmin: false,
-        userLogin: {},
+        isSubscribe: false,
       };
     case "LOGIN_ADMIN":
       return {
@@ -39,8 +33,8 @@ export const AppContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <AppContext.Provider value={[state, dispatch]}>
+    <UserContext.Provider value={[state, dispatch]}>
       {children}
-    </AppContext.Provider>
+    </UserContext.Provider>
   );
 };
